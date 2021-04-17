@@ -6,12 +6,14 @@
   "scripts": {
     "test": "jest --coverage --config=unitTestsJestConfig.json",
     "lint": "eslint \"./**/*.js\" --fix",
-    "test:acceptance": "TEST_MODE=http TEST_BASE_URL='https://r5we8b8i5j.execute-api.eu-west-1.amazonaws.com/devabe/api' ./node_modules/.bin/jest ./tests/*",
+    "test:acceptance": "TEST_MODE=http jest ./tests/*",
     "test:integration": "TEST_MODE=handler jest ./test/*",
     "pretest": "npm run lint",
     "posttest": "npm audit",
     "deploy": "serverless deploy --aws-profile serverless-local",
-    "seedMasters": "node seedMasters.js masters-devabe"
+    "seedMasters": "node seedMasters.js masters-devabe",
+    "deploy:sit": "serverless deploy --stage sit",
+    "deploy:prod": "serverless deploy --stage prod"
   },
   "author": "Vicenc Garcia Altes",
   "license": "MIT",

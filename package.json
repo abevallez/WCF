@@ -34,6 +34,8 @@
     "superagent-promise": "^1.1.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.888.0"
+    "aws-sdk": "^2.888.0",
+    "chance": "^1.1.7",
+    "epsagon": "^1.108.0"
   }
 }

@@ -10,7 +10,7 @@ provider:
   stage: dev${env:SLSUSER, ""}
   environment:
     service: ${self:service}-${self:custom.stage}
-    epsagonToken: ${self:custom.secrets.epsagonToken}
+    epsagonToken: ${ssm:/pufouniversity/${self:custom.stage}/epsagonTokenSecure~true}
 
 custom:
   defaultRegion: eu-west-1
@@ -18,7 +18,6 @@ custom:
   mastersTable: masters-${self:custom.stage}
   enrolMasterSnsTopicName: enrollMasterEvents-${self:custom.stage}
   enrolMasterSnsTopic: arn:aws:sns:#{AWS::Region}:#{AWS::AccountId}:${self:custom.enrolMasterSnsTopicName}
-  secrets: ${file(./secrets.yml)}
 
 functions:
   getMasters:
